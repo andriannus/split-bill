@@ -19,7 +19,7 @@ export default defineComponent({
       </div>
 
       <div class="flex justify-center">
-        <img src={Payment} alt="Payment Bill Icon" />
+        <img src={Payment} alt="Payment Bill Icon" width="192" />
       </div>
 
       <div class="flex">
