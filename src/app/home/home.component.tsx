@@ -5,11 +5,13 @@ import { useStore } from "vuex";
 import Camera from "@/app/shared/assets/images/camera.png";
 import Image from "@/app/shared/assets/images/image.png";
 import Payment from "@/app/shared/assets/images/payment.png";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   name: "Home",
 
   setup() {
+    const router = useRouter();
     const store = useStore();
 
     const state = reactive({
@@ -38,6 +40,7 @@ export default defineComponent({
         await state.worker.initialize("eng");
 
         const data = await state.worker.recognize(state.selectedPhoto);
+        router.push("/recognize");
         console.log(data.data);
       } catch (error) {
         console.error(error);
@@ -79,7 +82,7 @@ export default defineComponent({
           <img src={Payment} alt="Payment Bill Icon" width="192" />
         </div>
 
-        <div class="flex">
+        <div class="divide-x flex">
           <div class="cursor-pointer flex flex-col items-center p-4 w-full">
             <img src={Camera} alt="Camera Icon" class="mb-2" width="32" />
             <p class="text-sm">Take photo</p>
